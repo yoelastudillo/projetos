@@ -17,7 +17,7 @@ notas = '2.3,2.4,2.4'
 
 def promedio (notas)
     notasarray = notas.split(',').map { |nota| nota.strip.to_f}
-    promedio = notasarray.sum / notasarray.length
+    notasarray.sum / notasarray.length
 end
 
 def hash (nome, curso, ar_promedio)
@@ -56,3 +56,41 @@ while count < saidahash.length
     puts saidahash.keys[count]
     count += 1
 end
+
+puts 'TIMES###########'
+3.times do
+ puts 'hola'
+end
+
+c = 1
+puts "LOOP########"
+loop do
+    puts 'ola'
+    if c == 3
+        break
+    end
+    c += 1
+end
+
+arrayexemplo = ['juan', 'pedro', 'jose']
+#####
+puts 'EACH ####'
+arrayexemplo.each do |arrayexem| #los || hacen que la variable sea local, osea que el valor no puede salri de fuera de sta funcion. en el caso de unfor sin usar las |, si consigue salir
+    puts arrayexem
+end
+
+saidahash.each do |chave, valor|
+    puts "chave #{chave}, valor #{valor}"
+end
+
+nomes_ex = arrayexemplo.map do |nomes| #arrayexemplo.map!, se colocar un ! depois del map, significa que va a sobreescribir la lista
+    nomes + "exemplo texto"
+end
+
+puts arrayexemplo
+puts nomes_ex
+
+##code ternario
+comparador = 2
+variable = comparador.eql?(3) ? 'si' : 'no'
+puts variable
