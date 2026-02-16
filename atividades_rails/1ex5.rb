@@ -93,4 +93,4 @@ puts nomes_ex
 ##code ternario
 comparador = 2
 variable = comparador.eql?(3) ? 'si' : 'no'
-puts variable
+puts variable 
