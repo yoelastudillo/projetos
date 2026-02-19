@@ -35,9 +35,9 @@ def IngreseCpf()
     loop do
     puts 'ingrese el cpf de 11 caracteres'
     cpf = gets.chomp.to_str
+    cpf = LimpezaCpf(cpf)
     if cpf.length == 11
         puts "CPF de 11 digitos"
-        cpf = LimpezaCpf(cpf)
         ver1, ver2 = Verificador(cpf)
         if ver1 == cpf[9].to_i && ver2 == cpf[10].to_i
             puts "los verificadores #{ver1} y #{ver2} coinciden con los del cpf: #{cpf}"
@@ -68,6 +68,7 @@ def Verificador(cpfok)
     soma2 = 0
     10.times  { |i| soma2+= cpfok[i].to_i * (11-i)}
     verificador2 = NumeroVerificado(soma2)
+
     return verificador1, verificador2
 end
 
