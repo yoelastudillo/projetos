@@ -56,4 +56,41 @@ H(3, A, C, B)
 # Objetivo:
 # Praticar recursão e compreensão de redução de problemas.
 #
+
+
+def hanoi(n, origen, auxiliar, destino)
+  if n == 1
+    puts "IF n: #{n} -  origen #{origen} - auxiliar: #{auxiliar} -  destino: #{destino}"
+  else
+    puts "PUTS 1 n: #{n} -  origen #{origen} - auxiliar: #{auxiliar} -  destino: #{destino}"
+    hanoi(n-1, origen, destino, auxiliar)  # Paso A
+
+    puts "PUTS 2 n: #{n} -  origen #{origen} - auxiliar: #{auxiliar} -  destino: #{destino}"
+    hanoi(n-1, auxiliar, origen, destino)  # Paso C
+    #puts "PUTS 2 n: #{n} -  origen #{origen} - auxiliar: #{auxiliar} -  destino: #{destino}"
+  end
+end
+
+hanoi(3,"A","B","C")
+
+
+
+hanoi(3, A, B, C)
+├─ Paso A: hanoi(2, A, C, B)
+│   ├─ Paso A: hanoi(1, A, B, C) → disco 1
+│   └─ Paso C: hanoi(1, B, A, C) → disco 2
+├─ Paso B: disco 3
+└─ Paso C: hanoi(2, B, A, C)
+    ├─ Paso A: hanoi(1, B, C, A) → disco 1
+    └─ Paso C: hanoi(1, A, B, C) → disco 2
 =end
+
+def hanoi(n, origen, auxiliar, destino)
+  if n == 1
+    puts "Mover disco 1 de #{origen} a #{destino}"
+  else
+    hanoi(n-1, origen, destino, auxiliar)  # Paso A
+    puts "Mover disco #{n} de #{origen} a #{destino}"  # Paso B
+    hanoi(n-1, auxiliar, origen, destino)  # Paso C
+  end
+end
